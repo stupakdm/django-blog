@@ -1,0 +1,22 @@
+{% extends 'myblog/header.html' %}
+
+{% block content %}
+<ul>
+    <li>
+        {% for p in people %}
+        <div class="group">
+                {% if p.image %}
+                    <img class="image_left" src="{{p.image.url}}">
+                {% endif %}
+                    <h3>{{ p.name }}</h3>
+                    <p><i>{{ p.slug }}</i></p>
+                    <p>{{ p.date_time }}</p>
+                    {{ p.content }}
+
+        </div>
+        <hr color="black" size="10">
+        {% endfor %}
+    </li>
+</ul>
+
+{% endblock content %}

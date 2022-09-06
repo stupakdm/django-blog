@@ -1,0 +1,7 @@
+{% for pl in places %}
+        {% if pl.pk == place_selected %}
+            <li class="selected">{{pl.name}}</li>
+        {% else %}
+            <li class="selected"><a href="{{ pl.get_absolute_url }}">{{pl.name}}</a></li>
+        {% endif %}
+{% endfor %}

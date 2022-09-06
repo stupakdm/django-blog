@@ -1,0 +1,10 @@
+{% extends 'myblog/header.html' %}
+
+{% block content %}
+    <h3>{{ this_blog.text|linebreaks }}</h3>
+    <div class="inline-urls">
+        <p>Ссылка на проекты: <a href={{this_blog.link_projects}}>{{this_blog.link_projects}}</a></p>
+        <p>Ссылка на биографию: <a href={{this_blog.link_biography}}>{{this_blog.link_biography}}</a></p>
+        <p>Обратный ответ: <a href={{this_blog.link_reply}}>{{this_blog.link_reply}}</a></p>
+    </div>
+{% endblock content %}

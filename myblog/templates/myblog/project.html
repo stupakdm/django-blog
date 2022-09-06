@@ -1,0 +1,11 @@
+{% extends 'myblog/base.html' %}
+
+{% block content %}
+<h1>{{project.title}}</h1>
+
+{% if project.image %}
+<p><img class="img-article-left" src="{{project.image.url}}"></p>
+{% endif %}
+
+{{project.content|linebreaks}}
+{% endblock %}

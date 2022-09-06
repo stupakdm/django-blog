@@ -1,0 +1,37 @@
+{% extends 'myblog/base.html' %}
+
+{% block content %}
+
+<ul>
+    {% for p in projects %}
+    <li>
+        <h2><a href='{{ p.get_absolute_url }}'>{{p.title}}</a></h2>
+        {% if p.image %}
+            <p><img class="img-article-left thumb" src="{{p.image.url}}"></p>
+        {% endif %}
+
+        <p>{% autoescape on %}
+            {{p.content|linebreaks|truncatewords:10}}
+        {% endautoescape %}</p>
+        <p>{{p.time_project_created}}</p>
+
+        <p>{{p.is_finished}}
+        {% if p.is_finished == True %}
+        <input type="checkbox" checked="checked">
+        {% endif %}
+        <!--{% if p.is_finished == False %}
+        <input type="checkbox">
+        {% endif %}-->
+        </p>
+        {% if p.link != '' %}
+        <p>Ссылка на проект: <a href={{p.link}}>{{p.link}}</a></p>
+        {% endif %}
+        {% if p.link == '' %}
+        <p>Ссылка на проект: <i>Нет ссылки на проект</i></p>
+        {% endif %}
+        <hr color="yellow" size="10">
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
